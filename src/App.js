@@ -1,17 +1,21 @@
 import './App.css';
 import Header from './Header'
 import Sidebar from './Sidebar'
-
+import Chat from "./Chat";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      {/* Header */}
+      <Router>
+
       <Header/>
       <div className='app_body'>
         <Sidebar/>
-        {/* Sidebar */}
-        {/* React-Router -> Chat screen */}
+        <Routes>
+
+        </Routes>
       </div>
+      </Router>
     </div>
   );
 }
