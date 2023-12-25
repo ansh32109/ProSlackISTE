@@ -1,0 +1,26 @@
+body{
+  --slack-color: #3f0f40;
+  overflow: hidden;
+}
+
+/* .app__body {
+  display:flex;
+  height: 100vh;
+} */
+
+/* App.css */
+
+
+/* App.css */
+
+.app_body {
+  display: flex;
+  height: 100vh; /* Use flexbox to enable horizontal alignment */
+}
+
+/* You might want to add more specific styles for Sidebar and Chat components */
+.app_body > * {
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+/* Additional styles as needed */
