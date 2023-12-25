@@ -14,34 +14,33 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
-import { useStateValue } from './StateProvider';
-
 function Sidebar() {
   const [channels, setChannels] = useState([]);
- const[{user}]=useStateValue();
-  useEffect(() => {
-    db.collection('rooms').onSnapshot((snapshot) => {
-      setChannels(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          name: doc.data().name,
-        }))
-      );
-    });
-  }, []);
-    return (
-        <div className='sidebar'>
-          <div className='sidebar_header'>
-            <div className='sidebar_info'>
-                <h2>User_Name</h2>
-                <h3>
-                   <FiberManualRecordIcon/>
-                    {user?.displayName}
-                </h3>
-            </div>
-            <CreateIcon/>
-            </div>
-            <SidebarOption Icon={InsertCommentIcon} title='Threads'/>
+
+useEffect(() => {
+  db.collection('rooms').onSnapshot((snapshot) => {
+    setChannels(
+      snapshot.docs.map((doc) => ({
+        id: doc.id,
+        name: doc.data().name,
+      }))
+    );
+  });
+}, []);
+
+  return (
+    <div className='sidebar'>
+      <div className='sidebar_header'>
+        <div className='sidebar_info'>
+            <h2>User1</h2>
+            <h3>
+                <FiberManualRecordIcon/>
+                Your Name
+            </h3>
+        </div>
+        <CreateIcon/>
+       </div>
+       <SidebarOption Icon={InsertCommentIcon} title='Threads'/>
        <SidebarOption Icon = {InboxIcon} title='Mentions & Reactions'/>
        <SidebarOption Icon={DraftsIcon} title='Saved Items'/>
        <SidebarOption Icon={BookmarkBorderIcon} title='Channel Browser'/>
@@ -53,13 +52,13 @@ function Sidebar() {
        <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
        <hr/>
        <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
-       {channels.map(channel =>(
+
+       {/* Connect to DB and list all the channels */}
+      {channels.map(channel =>(
         <SidebarOption title ={channel.name} id = {channel.id}/>
       ))}
-           </div>
-          
-     
-      )
-    }
-    
-    export default Sidebar
+    </div>
+  )
+}
+
+export default Sidebar
