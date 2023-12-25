@@ -1,15 +1,28 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optiona
+// Initialize Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyC0EecOxJwpeGIqhUmlYyXm00824DnvPLE",
-    authDomain: "slack-clone-70168.firebaseapp.com",
-    projectId: "slack-clone-70168",
-    storageBucket: "slack-clone-70168.appspot.com",
-    messagingSenderId: "456698271889",
-    appId: "1:456698271889:web:b482d9e6eb3382a0680730",
-    measurementId: "G-63WY25ZV1M"
-  };
+  apiKey: "AIzaSyB9e5f1KOIkirgqAQdPb8ofZrlxx9lISUU",
+  authDomain: "pro-slack-database.firebaseapp.com",
+  projectId: "pro-slack-database",
+  storageBucket: "pro-slack-database.appspot.com",
+  messagingSenderId: "142221963597",
+  appId: "1:142221963597:web:afbba6453408c92d240704",
+  measurementId: "G-3W3WHFCZCL"
+};
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
   const auth = firebase.auth();
