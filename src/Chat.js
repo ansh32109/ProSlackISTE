@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import "./Chat.css";
+import ChatInput from './ChatInput.js'
 import {useParams} from "react-router-dom";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
@@ -32,7 +33,7 @@ function Chat() {
   console.log(roomDetails);
   console.log("MESSAGES",roomMessages);
 
-  return (
+  return (  
     <div className = "chat">
         <h2> You are in the {roomId} room</h2>
         <div className='chat__header'>
@@ -59,6 +60,10 @@ function Chat() {
               ))}
         
         </div>
+        <ChatInput
+          channelName = {roomDetails?.name}
+          channelId = {roomId}
+        />
         
     </div>
   
