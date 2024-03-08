@@ -1,16 +1,33 @@
 import React,{useState, useEffect} from 'react'
 import "./Chat.css";
+import ChatInput from './ChatInput.js'
 import {useParams} from "react-router-dom";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import DustbinIcon from '@mui/icons-material/DeleteOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import db from "./firebase";
 import Message from './Message';
 import { collection, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 function Chat() {
     const { roomId } = useParams();
     const[roomDetails,setRoomDetails]= useState(null)
     const[roomMessages,setRoomMessages]=useState([])
+    const navigate = useNavigate();
+    const deleteChannel = ()=> {
+      if(roomDetails?.name){
+        db.collection('rooms').doc(roomId).delete()
+        .then(() => {
+          console.log("Channel successfully deleted!");
+          // eslint-disable-next-line no-restricted-globals
+          navigate('/');
+      })
+      .catch((error) => {
+          console.error("Error removing channel: ", error);
+      });
+      }
+    }
 
  useEffect(() => {
     if(roomId) {
@@ -32,7 +49,7 @@ function Chat() {
   console.log(roomDetails);
   console.log("MESSAGES",roomMessages);
 
-  return (
+  return (  
     <div className = "chat">
         <h2> You are in the {roomId} room</h2>
         <div className='chat__header'>
@@ -43,6 +60,10 @@ function Chat() {
             </h4>
           </div>
           <div className='chat__headerRight'>
+          
+          <button className = "delete_button" onClick={deleteChannel}>
+          <DustbinIcon/>
+          </button>
            <p>
             <InfoOutlinedIcon/> Details
            </p>
@@ -59,6 +80,10 @@ function Chat() {
               ))}
         
         </div>
+        <ChatInput
+          channelName = {roomDetails?.name}
+          channelId = {roomId}
+        />
         
     </div>
   

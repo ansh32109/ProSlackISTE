@@ -1,9 +1,20 @@
 .sidebar{
+    display: flex;
+    flex-direction: column;
     color: white;
     flex:0.3;
     background-color: var(--slack-color);
     border-top: 1px solid #49274b;
     max-width: 230px;
+    margin-bottom: 2px;
+}
+
+.channels{
+    display: flex;
+    flex-direction: column;
+    height: 33vh;
+    overflow-y: auto;
+    margin-bottom: 2px;
 }
 
 .sidebar_header{
@@ -50,3 +61,24 @@
     background-color: white;
     border-radius: 999px;
 }
+
+
+/* ::-webkit-scrollbar {
+    width: 10px; 
+} */
+
+/* Scrollbar Thumb */
+/* ::-webkit-scrollbar-thumb {
+    background-color: #7e0287;
+    border-radius: 5px;
+} */
+
+/* Scrollbar Track when mouse is over */
+/* ::-webkit-scrollbar-track:hover {
+    background-color: #ffffff; 
+} */
+
+/* Scrollbar Thumb when mouse is over */
+/* ::-webkit-scrollbar-thumb:hover {
+    background-color: #850995; 
+ } */

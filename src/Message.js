@@ -10,7 +10,8 @@ function Message({ message, timestamp, user, userImage }) {
     const dateIST = dateObject?.toLocaleString('en-IN', {
       timeZone: 'Asia/Kolkata', // Use 'Asia/Kolkata' for Indian Standard Time
     });
-  
+    let messageWithoutWhitespace = message.replace(/\s/g, '');
+    if(messageWithoutWhitespace != ""){
     return (
       <div className="message">
         <img src={userImage} alt="" />
@@ -25,6 +26,7 @@ function Message({ message, timestamp, user, userImage }) {
         </div>
       </div>
     );
+    }
   }
   
   export default Message;

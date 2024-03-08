@@ -42,21 +42,22 @@ function Sidebar() {
             <CreateIcon/>
             </div>
             <SidebarOption Icon={InsertCommentIcon} title='Threads'/>
-       <SidebarOption Icon = {InboxIcon} title='Mentions & Reactions'/>
-       <SidebarOption Icon={DraftsIcon} title='Saved Items'/>
-       <SidebarOption Icon={BookmarkBorderIcon} title='Channel Browser'/>
-       <SidebarOption Icon={PeopleAltIcon} title='People and User Groups'/>
-       <SidebarOption Icon={AppsIcon} title='Apps'/>
-       <SidebarOption Icon={FileCopyIcon} title='File Browser'/>
-       <SidebarOption Icon={ExpandLessIcon} title='Show less'/>
-       <hr/>
-       <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
-       <hr/>
-       <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
-       {channels.map(channel =>(
-        <SidebarOption title ={channel.name} id = {channel.id}/>
-      ))}
-           </div>
+            <SidebarOption Icon = {InboxIcon} title='Mentions & Reactions'/>
+            <SidebarOption Icon={DraftsIcon} title='Saved Items'/>
+            <SidebarOption Icon={BookmarkBorderIcon} title='Channel Browser'/>
+            <SidebarOption Icon={PeopleAltIcon} title='People and User Groups'/>
+            <SidebarOption Icon={AppsIcon} title='Apps'/>
+            <SidebarOption Icon={FileCopyIcon} title='File Browser'/>
+            <SidebarOption Icon={ExpandLessIcon} title='Show less'/>
+            <hr/>
+            <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
+            <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
+            <div className="channels">
+              {channels.map(channel =>(
+              <SidebarOption title ={channel.name} id = {channel.id}/>
+              ))}
+            </div>
+          </div>
           
      
       )
