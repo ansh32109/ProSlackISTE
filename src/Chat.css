@@ -43,5 +43,9 @@
 .delete_button{
     background-color: transparent;
     border: none;
+    transition: 0.3s;
 }
 
+.delete_button:hover{
+    transform: scale(1.2);
+}
