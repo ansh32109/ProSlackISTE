@@ -61,7 +61,7 @@ function Chat() {
           </div>
           <div className='chat__headerRight'>
           
-          <button className = "delete_button" onClick={deleteChannel}>
+          <button className = "delete_button" onClick={deleteChannel} title='Delete Channel'>
           <DustbinIcon/>
           </button>
            <p>

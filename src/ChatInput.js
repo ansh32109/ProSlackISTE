@@ -3,8 +3,7 @@ import "./ChatInput.css";
 import db from "./firebase"
 import { useStateValue } from './StateProvider';
 import { serverTimestamp} from 'firebase/firestore';
-
-
+import SendIcon from '@mui/icons-material/Send';
 
 function ChatInput({ channelName, channelId }) {
     const [input, setInput] = useState('');
@@ -33,6 +32,8 @@ function ChatInput({ channelName, channelId }) {
 
     return (
         <div className='chatInput'>
+            
+            
             <form onSubmit={sendMessage}>
                 <input
                     value={input}
@@ -40,8 +41,9 @@ function ChatInput({ channelName, channelId }) {
                     placeholder={`Type here to message in #${channelName?.toLowerCase()}`}
 
                 />
-                <button type="submit" onClick={sendMessage}>SEND</button>
+                <button type="submit" onClick={sendMessage} className='send-button'><SendIcon/></button>
             </form>
+
         </div>
     );
 }

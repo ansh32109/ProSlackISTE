@@ -9,12 +9,26 @@
  .chatInput>form>input{
     position:fixed;
     bottom:30px;
+    height: 1px;
     width:60%;
     border:1px solid white;
     border-radius: 3px;
     padding: 20px;
  }
  
- .chatInput>form>button{
-    display: none !important
- }
+.send-button{
+   position: fixed;
+   background: transparent;
+   border: none;
+   bottom:37px;   
+   right: 155px;
+   transform: scale(1.2);
+   transition: 0.3s;
+}
+
+.send-button:hover{
+   transform: scale(1.5);
+}
+
+
+
