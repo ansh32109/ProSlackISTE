@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import "./ChatInput.css";
 import db from "./firebase"
 import { useStateValue } from './StateProvider';
-import { serverTimestamp} from 'firebase/firestore';
 import SendIcon from '@mui/icons-material/Send';
+import { serverTimestamp, getDocs, deleteDoc } from 'firebase/firestore';
 
 function ChatInput({ channelName, channelId }) {
     const [input, setInput] = useState('');
@@ -29,6 +29,17 @@ function ChatInput({ channelName, channelId }) {
             });
         }
     };
+    const clearChat = async () => {
+        try {
+            const messagesSnapshot = await getDocs(db.collection('rooms').doc(channelId).collection('messages'));
+            messagesSnapshot.forEach((doc) => {
+                deleteDoc(doc.ref);
+            });
+            console.log("Chat cleared successfully!");
+        } catch (error) {
+            console.error("Error clearing chat:", error);
+        }
+    };
 
     return (
         <div className='chatInput'>
@@ -42,6 +53,7 @@ function ChatInput({ channelName, channelId }) {
 
                 />
                 <button type="submit" onClick={sendMessage} className='send-button'><SendIcon/></button>
+                <button type="button" onClick={clearChat} className='clear-button'>Clear Chat</button>
             </form>
 
         </div>

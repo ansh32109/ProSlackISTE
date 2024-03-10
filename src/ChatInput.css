@@ -15,6 +15,9 @@
     border-radius: 3px;
     padding: 20px;
  }
+
+
+ 
  
 .send-button{
    position: fixed;
@@ -24,6 +27,11 @@
    right: 155px;
    transform: scale(1.2);
    transition: 0.3s;
+}
+
+.clear-button{
+   position: fixed;
+
 }
 
 .send-button:hover{
