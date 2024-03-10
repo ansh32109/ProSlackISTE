@@ -45,18 +45,25 @@ function App() {
 }
 
 const WelcomeText = () => {
-  const [text, setText] = useState('');
-  const txt = "Start collaborating effortlessly with your team. Dive into channels, share ideas, and stay organized. Need help? We're here for you. Let's make teamwork simpler and more enjoyable together!";
+  const [text1, setText1] = useState('');
+  const [text2, setText2] = useState('                        ');
+  
+  const txt1 = "Welcome to Proslack- Revolutionize Your Collaboration🎉!";
+  const txt2 = "Start collaborating effortlessly with your team. Dive into channels, share ideas, and stay organized. Need help? We're here for you. Let's make teamwork simpler and more enjoyable together!";
+  
   let i = 0;
   const speed = 100;
   let timeoutId; // Define timeoutId variable
 
   useEffect(() => {
     const typingEffect = () => {
-      if (i < txt.length) {
-        setText(prevText => prevText + txt.charAt(i));
+      if (i < txt1.length) {
+        setText1(prevText => prevText + txt1.charAt(i));
         i++;
         timeoutId = setTimeout(typingEffect, speed); // Assign timeoutId here
+      } else {
+        // Typing effect for text1 is complete, display text2
+        displayText2();
       }
     };
     typingEffect();
@@ -65,13 +72,17 @@ const WelcomeText = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  const displayText2 = () => {
+    setText2(txt2);
+  };
+
   return (
     <div className="welcome-text">
       <div>
-        <h1>Welcome to Proslack- Revolutionize Your Collaboration🎉!</h1>
+        <h1 className="welcome-heading">{text1}</h1>
       </div>
       <div>
-        <p>{text}</p>
+        <p>{text2}</p>
       </div>
     </div>
   );

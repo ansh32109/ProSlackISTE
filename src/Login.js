@@ -25,7 +25,7 @@ function Login() {
     };
 
     return (
-        <div className="login">
+        <div className="login" style={{ backgroundImage:`url(${require('./bg1.jpg')})` }}>
             <div className='Login__container'>
                 <img src="https://www.sketchappsources.com/resources/source-image/new-slack-logo-nicolas-ciotti.jpg" alt="SLACK" />
                 <h5>Sign in to ProSlack</h5>

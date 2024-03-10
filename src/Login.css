@@ -1,12 +1,14 @@
 .login {
     height: 100vh;
-    background-color:#4a154b;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items:center;
 }
 .Login__container {
-    padding: 100px;
+    padding: 50px;
     text-align: center;
     background-color: white;
     border-radius: 10px;
