@@ -15,22 +15,47 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
+import { getUserChannels } from './user_channels';
 
 
 function Sidebar() {
   const [show,setShowLess] = useState(true);
-  const [channels, setChannels] = useState([]);
- const[{user}]=useStateValue();
-  useEffect(() => {
-    db.collection('rooms').onSnapshot((snapshot) => {
-      setChannels(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          name: doc.data().name,
-        }))
-      );
-    });
-  }, []);
+  const [channelNames, setChannelNames] = useState([]);
+  const [{ user }] = useStateValue();
+  
+   useEffect(() => {
+
+  const fetchUserChannelsAndNames = async () => {
+    try {
+      const userId = user?.uid;
+
+      if (userId) {
+        const userChannels = await getUserChannels(userId);
+        setChannelNames([]);
+
+        if (userChannels.length > 0) {
+          const names = [];
+
+          for (const channelId of userChannels) {
+            const snapshot = await db.collection('rooms').doc(channelId.toString()).get();
+            const channelName = snapshot.data()?.name;
+
+            if (channelName) {
+              names.push({ id: channelId, name: channelName });
+            }
+          }
+            setChannelNames(names);
+          
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching user channels and names: ', error);
+    }
+  };
+
+  fetchUserChannelsAndNames();
+}, [user]);
+  
     return (
         <div className='sidebar'>
           <div className='sidebar_header'>
@@ -57,7 +82,7 @@ function Sidebar() {
             <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
             <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
             <div className="channels">
-              {channels.map(channel =>(
+              {channelNames.map((channel) =>(
               <SidebarOption title ={channel.name} id = {channel.id}/>
               ))}
             </div>
