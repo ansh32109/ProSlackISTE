@@ -15,9 +15,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
-// import { getUserChannels } from './user_channels';
+
 
 function Sidebar() {
+  const [show,setShowLess] = useState(true);
   const [channels, setChannels] = useState([]);
  const[{user}]=useStateValue();
   useEffect(() => {
@@ -42,21 +43,24 @@ function Sidebar() {
             </div>
             <CreateIcon/>
             </div>
-            <SidebarOption Icon={InsertCommentIcon} title='Threads'/>
-            <SidebarOption Icon = {InboxIcon} title='Mentions & Reactions'/>
-            <SidebarOption Icon={DraftsIcon} title='Saved Items'/>
-            <SidebarOption Icon={BookmarkBorderIcon} title='Channel Browser'/>
-            <SidebarOption Icon={PeopleAltIcon} title='People and User Groups'/>
-            <SidebarOption Icon={AppsIcon} title='Apps'/>
-            <SidebarOption Icon={FileCopyIcon} title='File Browser'/>
-            <SidebarOption Icon={ExpandLessIcon} title='Show less'/>
-            <hr/>
+            {show && <div>
+              <SidebarOption Icon={InsertCommentIcon} title='Threads'/>
+              <SidebarOption Icon = {InboxIcon} title='Mentions & Reactions'/>
+              <SidebarOption Icon={DraftsIcon} title='Saved Items'/>
+              <SidebarOption Icon={BookmarkBorderIcon} title='Channel Browser'/>
+              <SidebarOption Icon={PeopleAltIcon} title='People and User Groups'/>
+              <SidebarOption Icon={AppsIcon} title='Apps'/>
+              <SidebarOption Icon={FileCopyIcon} title='File Browser'/>
+            </div>}
+            <button className='showless-button' onClick={() => setShowLess(!show)}>{show ? <SidebarOption Icon={ExpandLessIcon} title='Show Less'/>: <SidebarOption Icon={ExpandMoreIcon} title='Show More'/>}</button>
+            <div className='Channels-box'>
             <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
             <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
             <div className="channels">
               {channels.map(channel =>(
               <SidebarOption title ={channel.name} id = {channel.id}/>
               ))}
+            </div>
             </div>
           </div>
           
