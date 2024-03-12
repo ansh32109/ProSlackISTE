@@ -1,8 +1,8 @@
-body{
+body {
   --slack-color: #3f0f40;
   overflow: hidden;
+  /* Define the gradient */
 }
-
 /* .app__body {
   display:flex;
   height: 100vh;
@@ -12,7 +12,9 @@ body{
 
 
 /* App.css */
-
+.app {
+    background: linear-gradient(to bottom, #323232, #34384a);
+}
 .app_body {
   display: flex;
   height: 100vh; /* Use flexbox to enable horizontal alignment */
@@ -24,3 +26,28 @@ body{
 }
 
 /* Additional styles as needed */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+.welcome-heading {
+  overflow: hidden; /* Ensures the text doesn't overflow */
+  white-space: nowrap; /* Keeps the text in one line */
+  animation: typing 4s steps(20, end); /* Adjust the duration and steps as needed */
+  margin-left:160px;
+  margin-top:80px;
+}
+h1 {
+  display:block;
+  color: black;
+  font-family: 'Fasthand', cursive;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.welcome-text{
+  justify-content:center;
+  text-align:center;
+}

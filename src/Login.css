@@ -1,27 +1,36 @@
-.login{
+.login {
     height: 100vh;
-    background: white;
-    display:grid;
-    place-items: center;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
-.Login__container{
-    padding: 100px;
+.Login__container {
+    padding: 50px;
     text-align: center;
     background-color: white;
     border-radius: 10px;
-    box-shadow:0 1px 3px rgba(0, 0, 0,0.12),
-    0 1px 2px rgba(0, 0, 0,0.24) ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
-.Login__container > img{
-    object-fit:contain;
-    height:200px;
-    /* margin-bottom: 1px; */
+.Login__container > img {
+    object-fit: contain;
+    height: 200px;
 }
-.Login__container > button{
-    margin-top: 50px;
-    text-transform: inherit; 
-    background-color: rgb(52, 110, 203);
+.Login__container > button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #3f0f3f; /* Adjusted button color */
     color: white;
-
+    transition: background-color 0.3s ease;
+}
+.Login__container > button:hover {
+    background-color: rgb(16, 60, 131);
+    color:white;
 }

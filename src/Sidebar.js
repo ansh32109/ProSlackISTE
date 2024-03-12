@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
+import { getUserChannels } from './user_channels';
 
 function Sidebar() {
   const [show,setShowLess] = useState(true);
