@@ -54,6 +54,7 @@ function Sidebar() {
   };
 
   fetchUserChannelsAndNames();
+}, [user]);
   
     return (
         <div className='sidebar'>
