@@ -10,6 +10,14 @@
     margin-bottom: 2px;
 }
 
+.showless-button{
+    padding: 0px;
+}
+
+.Channels-box{
+    border-top: 2px solid white;
+}
+
 .channels{
     display: flex;
     flex-direction: column;
@@ -68,6 +76,8 @@
     border: none;
     color: white;
 }
+
+
 
 
 /* ::-webkit-scrollbar {

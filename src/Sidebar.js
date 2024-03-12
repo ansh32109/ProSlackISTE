@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
-import { getUserChannels } from './user_channels';
+//import { getUserChannels } from './user_channels';
 
 function Sidebar() {
   const [show,setShowLess] = useState(true);
@@ -53,13 +53,14 @@ function Sidebar() {
               <SidebarOption Icon={FileCopyIcon} title='File Browser'/>
             </div>}
             <button className='showless-button' onClick={() => setShowLess(!show)}>{show ? <SidebarOption Icon={ExpandLessIcon} title='Show Less'/>: <SidebarOption Icon={ExpandMoreIcon} title='Show More'/>}</button>
-            <hr/>
+            <div className='Channels-box'>
             <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
             <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
             <div className="channels">
               {channels.map(channel =>(
               <SidebarOption title ={channel.name} id = {channel.id}/>
               ))}
+            </div>
             </div>
           </div>
           
