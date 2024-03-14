@@ -1,9 +1,17 @@
 .chat {
+    display: flex;
+    flex-direction: column;
     flex: 0.7;
     flex-grow:1;
-    overflow-y:scroll;
-    padding-bottom: 150px;
+    height: 90vh;
 }
+
+.chat__messages{
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
 .chat__header{
     display:flex;
     align-items:center;
@@ -48,4 +56,21 @@
 
 .delete_button:hover{
     transform: scale(1.2);
+}
+
+.header-text{
+    color:aliceblue;
+}
+
+.chat__ChannelName{
+    color: aliceblue;
+}
+
+.delete_button{
+    color: aliceblue;
+}
+
+.info-button{
+    transform: scale(1.5);
+    color: white;
 }
