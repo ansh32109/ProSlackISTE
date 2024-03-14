@@ -51,10 +51,10 @@ function Chat() {
 
   return (  
     <div className = "chat">
-        <h2 className='header-text'> You are in the {roomId} room</h2>
+        <h2> You are in the {roomId} room</h2>
         <div className='chat__header'>
           <div className='chat__headerLeft'>
-            <h4 className='chat__ChannelName' > 
+            <h4 className='chat__ChannelName'> 
                <strong> #{roomDetails?.name} </strong>
                <StarBorderOutlinedIcon/>
             </h4>
@@ -65,7 +65,7 @@ function Chat() {
           <DustbinIcon/>
           </button>
            <p>
-            <InfoOutlinedIcon className='info-button'/>
+            <InfoOutlinedIcon/> Details
            </p>
           </div>
         </div>

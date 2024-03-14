@@ -9,8 +9,7 @@ function SidebarOption({Icon , title, id,addChannelOption}) {
     if(id) {
         navigate(`/room/${id}`);
 
-    }
-    else if(title!= 'Show Less' && title!='Show More'){
+    }else if(title!= 'Show Less' && title!='Show More'){
         if(title!='Channels'){
           navigate(title);
         }

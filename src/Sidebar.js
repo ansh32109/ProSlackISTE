@@ -15,7 +15,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
-import { Add, HdrPlus, PlusOne } from '@mui/icons-material';
 
 
 function Sidebar() {
@@ -57,7 +56,6 @@ function Sidebar() {
             <div className='Channels-box'>
             <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
             <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
-            <SidebarOption Icon={Add} title='Join Channel'/>
             <div className="channels">
               {channels.map(channel =>(
               <SidebarOption title ={channel.name} id = {channel.id}/>

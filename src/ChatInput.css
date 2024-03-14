@@ -1,40 +1,37 @@
 .chatInput{
-   display: flex;
-   flex-direction: row;
-   border-radius:20px;
-   align-items: center;
+    border-radius:20px;
 }
-.input-field{
-   width:100%;
-   border:1px solid white;
-   border-radius: 3px;
-   height: 4vh;
+ .chatInput > form{
+    position:relative;
+    display:flex;
+    justify-content:center;
+ }
+ .chatInput>form>input{
+    position:fixed;
+    bottom:30px;
+    height: 1px;
+    width:60%;
+    border:1px solid white;
+    border-radius: 3px;
+    padding: 20px;
  }
 
-.message-form{   
-   padding-left: 10%;
-   padding-right: 1%;
-   width: 70%;
-}
-
-.button1{
-   padding-right: 10px;
-}
 
  
+ 
 .send-button{
-
+   position: fixed;
    background: transparent;
    border: none;
-   color: blue;
+   bottom:37px;   
+   right: 155px;
    transform: scale(1.2);
    transition: 0.3s;
 }
 
 .clear-button{
-   background: transparent;
-   color: black;
-   border: none;
+   position: fixed;
+
 }
 
 .send-button:hover{
