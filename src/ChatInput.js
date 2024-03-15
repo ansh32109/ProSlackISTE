@@ -4,6 +4,7 @@ import db from "./firebase"
 import { useStateValue } from './StateProvider';
 import SendIcon from '@mui/icons-material/Send';
 import { serverTimestamp, getDocs, deleteDoc } from 'firebase/firestore';
+import { Clear } from '@mui/icons-material';
 
 function ChatInput({ channelName, channelId }) {
     const [input, setInput] = useState('');
@@ -45,16 +46,27 @@ function ChatInput({ channelName, channelId }) {
         <div className='chatInput'>
             
             
+            <div className='message-form'>
             <form onSubmit={sendMessage}>
                 <input
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder={`Type here to message in #${channelName?.toLowerCase()}`}
-
+                    className='input-field'
                 />
-                <button type="submit" onClick={sendMessage} className='send-button'><SendIcon/></button>
-                <button type="button" onClick={clearChat} className='clear-button'>Clear Chat</button>
             </form>
+            </div>
+            
+            <div className='button1'>
+                <button type="submit" onClick={sendMessage} className='send-button'><SendIcon/></button>
+                
+            </div>
+
+            <div className='button2'>
+            <button type="button" onClick={clearChat} className='clear-button'><Clear/></button>
+            </div>
+
+
 
         </div>
     );

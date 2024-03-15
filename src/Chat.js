@@ -78,7 +78,7 @@
             <DustbinIcon/>
             </button>
             <p>
-              <InfoOutlinedIcon/> Details
+            <InfoOutlinedIcon className='info-button'/>
             </p>
             </div>
           </div>
