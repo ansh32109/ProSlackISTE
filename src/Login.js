@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Button } from "@mui/material";
 import { auth, provider } from "./firebase";
+import db from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 
@@ -9,20 +10,35 @@ function Login() {
     const [state, dispatch] = useStateValue();
     const [fadeOut, setFadeOut] = useState(false); // State to control fade-out class
 
-    const signIn = () => {
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                console.log(result);
-                dispatch({
-                    type: actionTypes.SET_USER,
-                    user: result.user,
-                });
-                setFadeOut(true); // Trigger fade-out animation when signing in
-            })
-            .catch((error) => {
-                alert(error.message);
-            });
-    };
+ const signIn = () => {
+    auth
+      .signInWithPopup(provider)
+      .then(async (result) => {
+        console.log(result);
+
+        // Check if the user exists in the "users" collection
+        const userRef = db.collection('users').doc(result.user.uid);
+        const userDoc = await userRef.get();
+
+        if (!userDoc.exists) {
+          // If the user does not exist, create a new document in the "users" collection
+          await userRef.set({
+            displayName: result.user.displayName,
+            email: result.user.email,
+            channels:[],
+            // Add other user details as needed
+          });
+        }
+
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 
     return (
         <div className={`login ${fadeOut ? 'fade-out' : ''}`} style={{ backgroundImage:`url(${require('./bg1.jpg')})` }}>
