@@ -61,7 +61,6 @@ function Sidebar() {
         <div className='sidebar'>
           <div className='sidebar_header'>
             <div className='sidebar_info'>
-                <h2>User_Name</h2>
                 <h3>
                    <FiberManualRecordIcon/>
                     {user?.displayName}
