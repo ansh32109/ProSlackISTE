@@ -106,14 +106,16 @@
             <button className = "delete_button" onClick={deleteChannel} title='Delete Channel'>
             <DustbinIcon/>
             </button>
+            <p>
             <Tooltip title={`Creator: ${roomDetails?.creator}`} arrow style={{ backgroundColor: 'inherit' }}>
             <button className="get_button" title="Show Creator">
               <InfoOutlinedIcon className="info-button" />
             </button>
-            </Tooltip>
-            <p></p>
-            </div>
+          </Tooltip>
+
             
+            </p>
+            </div>
           </div>
           <div className="chat__messages">
           {roomMessages
