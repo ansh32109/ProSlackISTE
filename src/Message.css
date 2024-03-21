@@ -4,8 +4,8 @@
     padding: 20px;
 }
 .message > img {
-    height:50px;
-    width:50px;
+    height:25px;
+    width:25px;
     object-fit:contain;
 }
 .message__info{
@@ -13,7 +13,16 @@
     font-size: 15px ;
 }
 .message__timestamp{
-    color:white;
+    color:rgb(2, 10, 105);
     font-weight: 300;
     font-size: 13px;
+}
+
+.messagetext{
+    font-size: small;
+    text-shadow: none;
+}
+
+#mestext{
+    margin-top: 10px;
 }
