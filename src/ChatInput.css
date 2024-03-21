@@ -2,6 +2,7 @@
    display: flex;
    flex-direction: row;
    border-radius:20px;
+   justify-content: center;
    align-items: center;
 }
 .input-field{
@@ -17,17 +18,13 @@
    width: 70%;
 }
 
-.button1{
-   padding-right: 10px;
-}
+
 
  
  
 .send-button{
-   position: fixed;
    background: transparent;
-   border: none;
-   bottom:37px;   
+   border: none;  
    right: 155px;
    transform: scale(1.2);
    transition: 0.3s;

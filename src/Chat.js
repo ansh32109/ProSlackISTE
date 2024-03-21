@@ -52,12 +52,10 @@
 
     return (  
       <div className = "chat">
-          <h2> You are in the {roomId} room</h2>
           <div className='chat__header'>
             <div className='chat__headerLeft'>
               <h4 className='chat__ChannelName'> 
                 <strong> #{roomDetails?.name} </strong>
-                <StarBorderOutlinedIcon/>
               </h4>
             </div>
         

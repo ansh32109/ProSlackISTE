@@ -59,11 +59,8 @@ function ChatInput({ channelName, channelId }) {
             
             <div className='button1'>
                 <button type="submit" onClick={sendMessage} className='send-button'><SendIcon/></button>
+                <button type="button" onClick={clearChat} className='clear-button'><Clear/></button>
                 
-            </div>
-
-            <div className='button2'>
-            <button type="button" onClick={clearChat} className='clear-button'><Clear/></button>
             </div>
 
 

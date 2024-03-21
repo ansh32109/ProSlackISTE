@@ -18,11 +18,12 @@ function Message({ message, timestamp, user, userImage }) {
         <div className="message__info">
           <h4>
             {user}
+            {" "}
             <span className="message__timestamp">
               {dateIST}
             </span>
           </h4>
-          <p>{message}</p>
+          <p className="messagetext" id="mestext">{message}</p>
         </div>
       </div>
     );
