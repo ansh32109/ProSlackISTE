@@ -16,7 +16,7 @@
       const { roomId } = useParams();
       const[roomDetails,setRoomDetails]= useState(null)
       const[roomMessages,setRoomMessages]=useState([])
-      const [creatorName, setCreatorName] = useState("");
+      const [creatorName, setCreator] = useState("");
       const [search,setSearch]=useState("")
       const navigate = useNavigate();
       const deleteChannel = ()=> {
@@ -33,13 +33,38 @@
         }
       }
 
-  useEffect(() => {
-      if(roomId) {
-  db.collection('rooms')
-      .doc(roomId)
-      .onSnapshot(snapshot =>(
-      setRoomDetails(snapshot.data())));
-  }},[roomId])
+
+      useEffect(() => {
+        if (roomId) {
+          const unsubscribeRoomDetails = db.collection('rooms')
+            .doc(roomId)
+            .onSnapshot(snapshot => {
+              setRoomDetails(snapshot.data());
+            });
+      
+          
+          const fetchCreatorData = async () => {
+            try {
+              const roomDoc = await db.collection('rooms').doc(roomId).get();
+              const creatorData = roomDoc.data()?.creator;
+              setCreator(creatorData);
+            } catch (error) {
+              console.error('Error fetching creator data:', error);
+            }
+          };
+      
+          fetchCreatorData(); 
+      
+          return () => {
+            unsubscribeRoomDetails(); 
+          };
+
+          
+        }
+      }, [roomId]);
+      
+
+  
   
 
   
@@ -82,7 +107,7 @@
             <DustbinIcon/>
             </button>
             <p>
-            <Tooltip title={`Creator: ${roomDetails?.creator}`} arrow style={{ backgroundColor: 'inherit' }}>
+            <Tooltip title={`Creator: ${creatorName}`} arrow style={{ backgroundColor: 'inherit' }}>
             <button className="get_button" title="Show Creator">
               <InfoOutlinedIcon className="info-button" />
             </button>
