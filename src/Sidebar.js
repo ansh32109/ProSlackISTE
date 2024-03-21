@@ -16,6 +16,7 @@ import AddIcon from '@mui/icons-material/Add';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
 import { getUserChannels } from './user_channels';
+import JoinChannel from './JoinChannelOption';
 
 
 function Sidebar() {
@@ -81,7 +82,7 @@ function Sidebar() {
             <div className='Channels-box'>
             <SidebarOption Icon={ExpandMoreIcon} title='Channels'/>
             <SidebarOption Icon={AddIcon} addChannelOption title='Add Channels'/>
-            <SidebarOption Icon={AddIcon} title='Join Channel'/>
+            <JoinChannel Icon={AddIcon} joinChannelOption title='Join Channel'/> 
             <div className="channels">
               {channelNames.map((channel) =>(
               <SidebarOption title ={channel.name} id = {channel.id}/>
