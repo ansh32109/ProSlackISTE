@@ -25,6 +25,7 @@ function SidebarOption({Icon , title, id,addChannelOption}) {
         // Add the new channel to the rooms collection
         const newChannelRef = await db.collection('rooms').add({
           name: channelName,
+          creator:user?.displayName,
         });
 
         const newChannelId = newChannelRef.id;
