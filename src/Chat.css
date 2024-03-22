@@ -35,16 +35,16 @@
     display: flex;
     gap: 1rem;
     flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .chat__headerRight > p{
-    display:flex;
-    align-items: center;
     font-size: 14px;
 }
 
 .chat__headerRight > p > .MuiSvgIcon-root {
-    margin-right: 5px !important;
+    margin-top: 0px;
     font-size: 16px;
 }
 
@@ -58,7 +58,24 @@
     transform: scale(1.2);
 }
 
-.info-button{
+.get_button{
     transform: scale(1.5);
-    color: white;
+    color: black;
+    margin-top: 0px;
 }
+
+.get_button{
+    background: transparent;
+    border: none;
+    transform: scale(1);
+    transition: 0.3s;
+}
+
+.get_button:hover{
+    transform: scale(1.2);
+}
+
+
+
+
+
