@@ -11,18 +11,15 @@ function Message({ message, timestamp, user, userImage }) {
       timeZone: 'Asia/Kolkata', // Use 'Asia/Kolkata' for Indian Standard Time
     });
     let messageWithoutWhitespace = message.replace(/\s/g, '');
-    if(messageWithoutWhitespace != ""){
+    if(messageWithoutWhitespace !== ""){
     return (
       <div className="message">
         <img src={userImage} alt="" />
         <div className="message__info">
-          <h4>
+          <h4 title={dateIST}>
             {user}
-            <span className="message__timestamp">
-              {dateIST}
-            </span>
           </h4>
-          <p>{message}</p>
+          <p className="messagetext" id="mestext">{message}</p>
         </div>
       </div>
     );
