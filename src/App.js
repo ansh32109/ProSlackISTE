@@ -50,6 +50,7 @@ function App() {
 const WelcomeText = () => {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('                        ');
+  const [showCards, setShowCards] = useState(false);
   
   const txt1 = "W elcome to Proslack- Revolutionize Your Collaboration🎉!";
   const txt2 = "Start collaborating effortlessly with your team. Dive into channels, share ideas, and stay organized.Need help? We're here for you. Let's make teamwork simpler and more enjoyable together!";
@@ -67,6 +68,8 @@ const WelcomeText = () => {
       } else {
         // Typing effect for text1 is complete, display text2
         displayText2();
+        // Set showCards to true after text1 typing effect is complete
+        setShowCards(true);
       }
     };
     typingEffect();
@@ -87,6 +90,18 @@ const WelcomeText = () => {
       <div classname="text2-box">
         <p>{text2}</p>
       </div>
+      {showCards && (
+        <div className="cards-container">
+          <div className="card">
+            <h2>Customized Channels</h2>
+            <p>Tailor channels to your workflow</p>
+          </div>
+          <div className="card">
+            <h2>Instant Messaging</h2>
+            <p>Share ideas and updates instantly.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

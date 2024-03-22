@@ -10,6 +10,7 @@ function Login() {
     const [state, dispatch] = useStateValue();
     const [fadeOut, setFadeOut] = useState(false); // State to control fade-out class
 
+
  const signIn = () => {
     auth
       .signInWithPopup(provider)
@@ -41,7 +42,8 @@ function Login() {
   };
 
     return (
-        <div className={`login ${fadeOut ? 'fade-out' : ''}`} style={{ backgroundImage:`url(${require('./bg1.jpg')})` }}>
+        <div className={`login ${fadeOut ? 'fade-out' : ''}`}>
+            <div className="gradient-container"></div>
             <div className='Login__container'>
                 <img src="https://www.sketchappsources.com/resources/source-image/new-slack-logo-nicolas-ciotti.jpg" alt="SLACK" />
                 <h5>Sign in to ProSlack</h5>
@@ -50,5 +52,4 @@ function Login() {
         </div>
     );
 }
-
 export default Login;

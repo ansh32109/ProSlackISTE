@@ -1,43 +1,55 @@
-body{
-    margin:0;
+.body {
+    margin: 0;
 }
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
+
 .login {
     min-height: 100vh;
-    margin-top:0;
-  background-size: cover; 
-  background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    position: relative; /* Ensure proper positioning */
 }
+
+.gradient-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #ca8772, #810d6e, #23a6d5, #011527);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    z-index: 0; /* Ensure gradient is behind login container */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .Login__container {
+    position: relative; /* Ensure proper positioning */
+    z-index: 1; /* Ensure login container is in front of gradient */
     padding: 40px;
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.1);
-    animation:fadeIn 1s ease;
+    animation: fadeIn 1s ease;
 }
+
 .Login__container > img {
     object-fit: contain;
     height: 200px;
 }
+
 .Login__container > button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -46,14 +58,25 @@ body{
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: #3f0f3f; /* Adjusted button color */
+    background-color: #3f0f3f;
     color: white;
     transition: background-color 0.3s ease;
 }
+
 .Login__container > button:hover {
     background-color: rgb(16, 60, 131);
-    color:white;
+    color: white;
 }
-.fade-out{
-    animation:fadeOut 1s ease;
+
+.fade-out {
+    animation: fadeOut 1s ease;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
