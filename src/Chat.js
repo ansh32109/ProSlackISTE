@@ -10,6 +10,7 @@
   import Message from './Message';
   import { collection, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
   import { useNavigate } from 'react-router-dom';
+  import SearchIcon from '@mui/icons-material/Search';
   
 
   function Chat() {
@@ -18,6 +19,7 @@
       const[roomMessages,setRoomMessages]=useState([])
       const [creatorName, setCreatorName] = useState("");
       const [search,setSearch]=useState("")
+      const [showsearch,setSearchbar] = useState(false);
       const navigate = useNavigate();
       const deleteChannel = ()=> {
         if(roomDetails?.name){
@@ -66,7 +68,8 @@
             </div>
         
             <div className='chat__headerRight'>
-            <form>
+            
+           { showsearch && <form>
         <input 
           type="text" 
           id="search" 
@@ -76,7 +79,8 @@
           onChange={(e) => setSearch(e.target.value)}
           value={search} 
       />
-      </form>
+      </form>}
+      {<button className='Search_button' title='Search Messages' onClick={() => setSearchbar(!showsearch)}><SearchIcon className='search_icon'/></button>}
             
             <button className = "delete_button" onClick={deleteChannel} title='Delete Channel'>
             <DustbinIcon/>
