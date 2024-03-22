@@ -17,7 +17,7 @@
     align-items:center;
     justify-content: space-between;
     padding:20px;
-    border-bottom: 1px solid white;
+    border-bottom: 3px solid white;
 }
 
 
@@ -34,17 +34,23 @@
 .chat__headerRight{
     display: flex;
     gap: 1rem;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
+    /* flex-direction: column; */
 }
 
 .chat__headerRight > p{
+    display:flex;
+    align-items: center;
     font-size: 14px;
 }
 
+.chat__headerRight > form{
+    padding-top: 12%;
+    padding-right: 30px;
+    width:80%px;
+}
+
 .chat__headerRight > p > .MuiSvgIcon-root {
-    margin-top: 0px;
+    margin-right: 5px !important;
     font-size: 16px;
 }
 
@@ -52,42 +58,14 @@
     background-color: transparent;
     border: none;
     transition: 0.3s;
+    padding-right: 50px;
 }
 
 .delete_button:hover{
     transform: scale(1.2);
 }
 
-.get_button{
+.info-button{
     transform: scale(1.5);
-    color: black;
-    margin-top: 0px;
+    color: white;
 }
-
-.get_button{
-    background: transparent;
-    border: none;
-    transform: scale(1);
-    transition: 0.3s;
-}
-
-.get_button:hover{
-    transform: scale(1.2);
-}
-
-
-.search_icon{
-    transition: 0.3s;
-}
-
-.search_icon:hover{
-    transform: scale(1.2);
-}
-
-.Search_button{
-    background: transparent;
-    border: none;
-    
-}
-
-
